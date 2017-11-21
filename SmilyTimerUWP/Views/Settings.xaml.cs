@@ -24,6 +24,10 @@ namespace SmilyTimerUWP
     /// </summary>
     public sealed partial class Settings : Page
     {
+        private int secDuration { get; set; }
+        private int minDuration { get; set; }
+        private int hourDuration { get; set; }
+
 
         public Settings()
         {
@@ -32,53 +36,128 @@ namespace SmilyTimerUWP
 
         private void SecsDownButton_Click(object sender, RoutedEventArgs e)
         {
-
+            CountDownTextbox(SettingsSecsTextbox);
         }
-
+        
         private void SecsUpButton_Click(object sender, RoutedEventArgs e)
         {
-
+            CountUpTextbox(SettingsSecsTextbox);
         }
 
         private void MinsDownButton_Click(object sender, RoutedEventArgs e)
         {
-
+            CountDownTextbox(SettingsMinsTextbox);
         }
 
         private void MinsUpButton_Click(object sender, RoutedEventArgs e)
         {
-
+            CountUpTextbox(SettingsMinsTextbox);
         }
 
         private void HoursUpButton_Click(object sender, RoutedEventArgs e)
         {
-
+            CountUpTextbox(SettingsHourTextbox);
         }
 
         private void HoursDownButton_Click(object sender, RoutedEventArgs e)
         {
-
+            CountDownTextbox(SettingsHourTextbox);
         }
 
         private void SettingsSaveButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!int.TryParse(SettingsSecsTextbox.Text, out int duration))
-            {
-                SettingsSaveButton.IsEnabled = false;
-            }
-            else
-            {
-                SettingsSaveButton.IsEnabled = true;
-            }
-
             var parameters = new TimerSetting()
             {
                 AnimationType = AnimationType.Candle,
-                Duration = duration,
+                Duration = (secDuration + (60 * minDuration) + (3600 * hourDuration)),
                 TimerType = TimerType.CountDown
             };
 
             Frame.Navigate(typeof(TimerView), parameters);
         }
+
+        private void SettingsSecsTextbox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+
+            ValidateTextBoxes();
+        }
+
+        private void SettingsMinsTextbox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+
+            ValidateTextBoxes();
+
+        }
+
+        private void SettingsHourTextbox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+
+            ValidateTextBoxes();
+        }
+
+        private void ValidateTextBoxes()
+        {
+            if (int.TryParse(SettingsSecsTextbox.Text, out int sduration) && int.TryParse(SettingsMinsTextbox.Text, out int mduration) && int.TryParse(SettingsHourTextbox.Text, out int hduration))
+            {
+                secDuration = sduration;
+                minDuration = mduration;
+                hourDuration = hduration;
+
+                SettingsSaveButton.IsEnabled = true;
+            }
+            else
+            {
+                SettingsSaveButton.IsEnabled = false;
+            }
+        }
+
+        private void CountDownTextbox(object textBox)
+        {
+            TextBox _textBox = textBox as TextBox;
+
+            if (int.TryParse(_textBox.Text, out int value))
+            {
+                if (value > 0)
+                {
+                    value--;
+                    _textBox.Text = value.ToString();
+                }
+                else
+                {
+                    _textBox.Text = "00";
+                }
+            }
+            else
+            {
+                _textBox.Text = "00";
+            }
+        }
+
+        private void CountUpTextbox(object textBox)
+        {
+            TextBox _textBox = textBox as TextBox;
+
+            if (int.TryParse(_textBox.Text, out int value))
+            {
+                if (value >= 0)
+                {
+                    value++;
+                    _textBox.Text = value.ToString();
+                }
+                else
+                {
+                    _textBox.Text = "00";
+                }
+            }
+            else
+            {
+                _textBox.Text = "00";
+            }
+
+        }
+
     }
 }

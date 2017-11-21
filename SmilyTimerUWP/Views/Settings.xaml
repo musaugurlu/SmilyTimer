@@ -85,7 +85,9 @@
                     <TextBox Name="SettingsHourTextbox" 
                              Text="00"
                              RelativePanel.AlignHorizontalCenterWithPanel="True"
-                             Style="{StaticResource SettingsTextboxStyle}"/>
+                             Style="{StaticResource SettingsTextboxStyle}" 
+                             InputScope="Number" 
+                             TextChanged="SettingsHourTextbox_TextChanged"/>
                     
                     <Grid RelativePanel.RightOf="SettingsHourTextbox">
                         <Grid.RowDefinitions>
@@ -112,7 +114,9 @@
                     <TextBox Name="SettingsMinsTextbox" 
                              Text="00"
                              RelativePanel.AlignHorizontalCenterWithPanel="True"
-                             Style="{StaticResource SettingsTextboxStyle}"/>
+                             Style="{StaticResource SettingsTextboxStyle}" 
+                             InputScope="Number" 
+                             TextChanged="SettingsMinsTextbox_TextChanged"/>
                     
                     <Grid RelativePanel.RightOf="SettingsMinsTextbox">
                         <Grid.RowDefinitions>
@@ -140,7 +144,8 @@
                              Text="00"
                              RelativePanel.AlignHorizontalCenterWithPanel="True"
                              Style="{StaticResource SettingsTextboxStyle}" 
-                             InputScope="Number"/>
+                             InputScope="Number" 
+                             TextChanged="SettingsSecsTextbox_TextChanged"/>
                     
                     <Grid RelativePanel.RightOf="SettingsSecsTextbox">
                         <Grid.RowDefinitions>
