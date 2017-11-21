@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="SmilyTimerUWP.Views.TimerView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SmilyTimerUWP.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="40">
+            <RelativePanel>
+                <Rectangle Width="200" 
+                       Height="50"
+                       StrokeThickness="2"
+                       Fill="Yellow"
+                           RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+                <TextBlock Name="TimeTextBlock"
+                           FontSize="48"
+                           Text="12:34:56"
+                           FontFamily="Berlin Sans FB"
+                           RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+                <Button Name="GotoSettingsButton"
+                        RelativePanel.AlignHorizontalCenterWith="TimeTextBlock"
+                        Margin="40"
+                        Content="Go to Settings"
+                        Visibility="Visible"
+                        Click="GotoSettingsButton_Click"/>
+            </RelativePanel>
+
+        </StackPanel>
+    </Grid>
+</Page>

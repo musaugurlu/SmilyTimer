@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="SmilyTimerUWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SmilyTimerUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <TextBlock Text="Settings"
+                       FontSize="48"
+                       Margin="20,0,0,0"
+                       Foreground="Black"/>
+            <TextBlock Text="|"
+                       FontSize="48"
+                       Margin="20,0,0,0"
+                       Foreground="LightGray"/>
+            <TextBlock Text="Timer"
+                       FontSize="48"
+                       Margin="20,0,0,0"
+                       Foreground="LightGray"/>
+        </StackPanel>
+        <Frame x:Name="MainBodyFrame" 
+               Grid.Row="1"/>
+    </Grid>
+</Page>

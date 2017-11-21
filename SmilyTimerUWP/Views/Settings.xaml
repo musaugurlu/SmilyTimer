@@ -1,0 +1,170 @@
+﻿<Page
+    x:Class="SmilyTimerUWP.Settings"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SmilyTimerUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        
+        <Style x:Name="SettingsTextboxStyle" TargetType="TextBox">
+            <Setter Property="Margin" Value="5,0,0,0"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="Height" Value="50" />
+            <Setter Property="Width" Value="30" />
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontFamily" Value="Baskerville Old Face"/>
+            <Setter Property="Background" Value="LightYellow" />
+            <Setter Property="Foreground" Value="DarkBlue"/>
+        </Style>
+        <Style x:Name="SettingsUpButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="30"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="FontFamily" Value="Segoe MDL2 Assets"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Grid.Row" Value="0"/>
+            <Setter Property="Content" Value="&#xE010;"/>
+        </Style>
+        <Style x:Name="SettingsDownButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="30"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="FontFamily" Value="Segoe MDL2 Assets"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Grid.Row" Value="1"/>
+            <Setter Property="Content" Value="&#xE011;"/>
+        </Style>
+        <Style x:Name="SettingsHeaderTextBlockStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Berlin Sans FB"/>
+            <Setter Property="Grid.Row" Value="0"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+          Margin="0,10,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Vertical">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Hours"
+                           Grid.Column="0"
+                           Style="{StaticResource SettingsHeaderTextBlockStyle}"/>
+                
+                <RelativePanel Grid.Row="1" Grid.Column="0">
+                    
+                    <TextBox Name="SettingsHourTextbox" 
+                             Text="00"
+                             RelativePanel.AlignHorizontalCenterWithPanel="True"
+                             Style="{StaticResource SettingsTextboxStyle}"/>
+                    
+                    <Grid RelativePanel.RightOf="SettingsHourTextbox">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        
+                        <Button Name="HoursUpButton" 
+                                Style="{StaticResource SettingsUpButtonStyle}"
+                                Click="HoursUpButton_Click"/>
+
+                        <Button Name="HoursDownButton" 
+                                Style="{StaticResource SettingsDownButtonStyle}"
+                                Click="HoursDownButton_Click"/>
+                    </Grid>
+                </RelativePanel>
+
+                <TextBlock Text="Mins"
+                           Grid.Column="1"
+                           Style="{StaticResource SettingsHeaderTextBlockStyle}"/>
+                
+                <RelativePanel Grid.Row="1" Grid.Column="1">
+                    
+                    <TextBox Name="SettingsMinsTextbox" 
+                             Text="00"
+                             RelativePanel.AlignHorizontalCenterWithPanel="True"
+                             Style="{StaticResource SettingsTextboxStyle}"/>
+                    
+                    <Grid RelativePanel.RightOf="SettingsMinsTextbox">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        
+                        <Button Name="MinsUpButton" 
+                                Style="{StaticResource SettingsUpButtonStyle}"
+                                Click="MinsUpButton_Click"/>
+
+                        <Button Name="MinsDownButton" 
+                                Style="{StaticResource SettingsDownButtonStyle}"
+                                Click="MinsDownButton_Click"/>
+                    </Grid>
+                </RelativePanel>
+
+                <TextBlock Text="Seconds"
+                           Grid.Column="2"
+                           Style="{StaticResource SettingsHeaderTextBlockStyle}"/>
+                
+                <RelativePanel Grid.Row="1" Grid.Column="2">
+                    
+                    <TextBox Name="SettingsSecsTextbox" 
+                             Text="00"
+                             RelativePanel.AlignHorizontalCenterWithPanel="True"
+                             Style="{StaticResource SettingsTextboxStyle}"/>
+                    
+                    <Grid RelativePanel.RightOf="SettingsSecsTextbox">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        
+                        <Button Name="SecsUpButton" 
+                                Style="{StaticResource SettingsUpButtonStyle}"
+                                Click="SecsUpButton_Click"/>
+
+                        <Button Name="SecsDownButton" 
+                                Style="{StaticResource SettingsDownButtonStyle}"
+                                Click="SecsDownButton_Click"/>
+                    </Grid>
+                </RelativePanel>
+            </Grid>
+        </StackPanel>
+        <StackPanel Grid.Row="1" 
+                    Margin="40" 
+                    Orientation="Horizontal">
+            
+            <Button Content="Start"
+                    Name="SettingsSaveButton"
+                    Click="SettingsSaveButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>
