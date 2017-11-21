@@ -24,7 +24,6 @@ namespace SmilyTimerUWP
     /// </summary>
     public sealed partial class Settings : Page
     {
-        public object MainBodyFrame { get; private set; }
 
         public Settings()
         {
@@ -63,10 +62,19 @@ namespace SmilyTimerUWP
 
         private void SettingsSaveButton_Click(object sender, RoutedEventArgs e)
         {
+            if (!int.TryParse(SettingsSecsTextbox.Text, out int duration))
+            {
+                SettingsSaveButton.IsEnabled = false;
+            }
+            else
+            {
+                SettingsSaveButton.IsEnabled = true;
+            }
+
             var parameters = new TimerSetting()
             {
                 AnimationType = AnimationType.Candle,
-                Duration = 10,
+                Duration = duration,
                 TimerType = TimerType.CountDown
             };
 

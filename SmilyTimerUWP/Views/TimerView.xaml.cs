@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmilyTimerUWP.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -50,7 +51,6 @@ namespace SmilyTimerUWP.Views
 
         private void GotoSettingsButton_Click(object sender, RoutedEventArgs e)
         {
-            Seconds = 10;
             GotoSettingsButton.IsEnabled = false;
             TimeTextBlock.Text = Seconds.ToString();
             timer.Start();
@@ -59,7 +59,8 @@ namespace SmilyTimerUWP.Views
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-
+            var parameters = e.Parameter as TimerSetting;
+            Seconds = parameters.Duration;
         }
 
     }

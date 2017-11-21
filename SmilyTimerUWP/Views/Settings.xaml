@@ -139,7 +139,8 @@
                     <TextBox Name="SettingsSecsTextbox" 
                              Text="00"
                              RelativePanel.AlignHorizontalCenterWithPanel="True"
-                             Style="{StaticResource SettingsTextboxStyle}"/>
+                             Style="{StaticResource SettingsTextboxStyle}" 
+                             InputScope="Number"/>
                     
                     <Grid RelativePanel.RightOf="SettingsSecsTextbox">
                         <Grid.RowDefinitions>
