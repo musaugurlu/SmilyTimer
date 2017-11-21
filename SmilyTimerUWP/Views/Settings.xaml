@@ -5,6 +5,7 @@
     xmlns:local="using:SmilyTimerUWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:SmilyTimerUWP.Model"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -20,6 +21,7 @@
             <Setter Property="FontFamily" Value="Baskerville Old Face"/>
             <Setter Property="Background" Value="LightYellow" />
             <Setter Property="Foreground" Value="DarkBlue"/>
+            <Setter Property="MaxLength" Value="2" />
         </Style>
         <Style x:Name="SettingsUpButtonStyle" TargetType="Button">
             <Setter Property="Width" Value="30"/>
@@ -52,7 +54,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
           Margin="0,10,0,0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -144,7 +146,6 @@
                              Text="00"
                              RelativePanel.AlignHorizontalCenterWithPanel="True"
                              Style="{StaticResource SettingsTextboxStyle}" 
-                             InputScope="Number" 
                              TextChanged="SettingsSecsTextbox_TextChanged"/>
                     
                     <Grid RelativePanel.RightOf="SettingsSecsTextbox">
@@ -171,6 +172,33 @@
             <Button Content="Start"
                     Name="SettingsSaveButton"
                     Click="SettingsSaveButton_Click"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" 
+                    Grid.Column="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <TextBlock Text="Animation"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Grid.Row="0"
+                           Margin="0,10,0,0"
+                           FontSize="28"/>
+
+                <ComboBox Name="AnimationComboBox"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch"
+                          Grid.Row="1"
+                          Margin="10"
+                          ItemsSource="{x:Bind Animations}"
+                          DisplayMemberPath="Name"/>
+            </Grid>
+            
         </StackPanel>
     </Grid>
 </Page>

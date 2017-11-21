@@ -2,6 +2,7 @@
 using SmilyTimerUWP.Views;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -24,14 +25,19 @@ namespace SmilyTimerUWP
     /// </summary>
     public sealed partial class Settings : Page
     {
-        private int secDuration { get; set; }
-        private int minDuration { get; set; }
-        private int hourDuration { get; set; }
+        private ObservableCollection<Animation> Animations;
+
+        private int SecDuration { get; set; }
+        private int MinDuration { get; set; }
+        private int HourDuration { get; set; }
 
 
         public Settings()
         {
             this.InitializeComponent();
+            Animations = new ObservableCollection<Animation>();
+            AnimationFactory.GetAnimations(Animations);
+            
         }
 
         private void SecsDownButton_Click(object sender, RoutedEventArgs e)
@@ -69,7 +75,7 @@ namespace SmilyTimerUWP
             var parameters = new TimerSetting()
             {
                 AnimationType = AnimationType.Candle,
-                Duration = (secDuration + (60 * minDuration) + (3600 * hourDuration)),
+                Duration = (SecDuration + (60 * MinDuration) + (3600 * HourDuration)),
                 TimerType = TimerType.CountDown
             };
 
@@ -102,9 +108,9 @@ namespace SmilyTimerUWP
         {
             if (int.TryParse(SettingsSecsTextbox.Text, out int sduration) && int.TryParse(SettingsMinsTextbox.Text, out int mduration) && int.TryParse(SettingsHourTextbox.Text, out int hduration))
             {
-                secDuration = sduration;
-                minDuration = mduration;
-                hourDuration = hduration;
+                SecDuration = sduration;
+                MinDuration = mduration;
+                HourDuration = hduration;
 
                 SettingsSaveButton.IsEnabled = true;
             }
@@ -120,7 +126,7 @@ namespace SmilyTimerUWP
 
             if (int.TryParse(_textBox.Text, out int value))
             {
-                if (value > 0)
+                if (value > 0 && value < 60)
                 {
                     value--;
                     _textBox.Text = value.ToString();
@@ -142,7 +148,7 @@ namespace SmilyTimerUWP
 
             if (int.TryParse(_textBox.Text, out int value))
             {
-                if (value >= 0)
+                if (value >= 0 && value < 59)
                 {
                     value++;
                     _textBox.Text = value.ToString();

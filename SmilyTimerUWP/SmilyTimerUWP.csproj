@@ -98,6 +98,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Animation.cs" />
     <Compile Include="Model\TimerSetting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Settings.xaml.cs">
