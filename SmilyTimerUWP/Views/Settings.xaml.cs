@@ -79,6 +79,7 @@ namespace SmilyTimerUWP
                 TimerType = TimerType.CountDown
             };
 
+            
             Frame.Navigate(typeof(TimerView), parameters);
         }
 

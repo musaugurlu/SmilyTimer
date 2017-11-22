@@ -8,33 +8,59 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-
         <StackPanel Orientation="Horizontal"
                     HorizontalAlignment="Center"
                     Margin="40">
             <RelativePanel>
-                <Rectangle Width="200" 
-                       Height="50"
-                       StrokeThickness="2"
-                       Fill="Yellow"
+                <Rectangle MinWidth="200" 
+                           MinHeight="50"
+                           StrokeThickness="2"
+                           Fill="Yellow"
                            RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+                
                 <TextBlock Name="TimeTextBlock"
                            FontSize="48"
                            Text="12:34:56"
                            FontFamily="Berlin Sans FB"
                            RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-                <Button Name="GotoSettingsButton"
-                        RelativePanel.AlignHorizontalCenterWith="TimeTextBlock"
-                        Margin="40"
-                        Content="Go to Settings"
-                        Visibility="Visible"
-                        Click="GotoSettingsButton_Click"/>
             </RelativePanel>
 
+        </StackPanel>
+        <StackPanel Grid.Row="1" 
+                    Grid.ColumnSpan="4"
+                    Orientation="Horizontal">
+            
+            <RelativePanel>
+                <Button Name="GotoSettingsButton"
+                        Margin="5,0,5,0"
+                        Content="Settings"
+                        Visibility="Visible"
+                        Click="GotoSettingsButton_Click"
+                        RelativePanel.AlignLeftWithPanel="True"/>
+                
+                <RadioButton Name="ShowAsClockRadioButton" 
+                             Content="Show as clock" 
+                             Margin="5,0,5,0"
+                             Click="ShowAsClockRadioButton_Click"
+                             IsChecked="True"
+                             RelativePanel.RightOf="GotoSettingsButton"/>
+
+                <RadioButton Name="ShowAsSecRadioButton"
+                             Content="Show as seconds" 
+                             Margin="5,0,5,0"
+                             Click="ShowAsSecRadioButton_Click"
+                             RelativePanel.RightOf="ShowAsClockRadioButton"/>
+                
+            </RelativePanel>
         </StackPanel>
     </Grid>
 </Page>
