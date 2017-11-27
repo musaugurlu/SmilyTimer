@@ -32,6 +32,27 @@
                            Text="12:34:56"
                            FontFamily="Berlin Sans FB"
                            RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+
+                <StackPanel Orientation="Horizontal"
+                            Margin="0,20,0,0"
+                            RelativePanel.Below="TimeTextBlock">
+                    <Button Name="TimeViewStartButton"
+                            Content="Start"
+                            Width="60"
+                            Click="TimeViewStartButton_Click"/>
+
+                    <Button Name="TimeViewPauseButton"
+                            Content="Pause"
+                            Margin="10,0,10,0"
+                            Width="60"
+                            Click="TimeViewPauseButton_Click"/>
+
+                    <Button Name="TimeViewStopButton"
+                            Content="Stop"
+                            Click="TimeViewStopButton_Click"
+                            Width="60"/>
+
+                </StackPanel>
             </RelativePanel>
 
         </StackPanel>

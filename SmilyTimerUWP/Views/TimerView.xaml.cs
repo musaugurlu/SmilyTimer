@@ -20,7 +20,6 @@ namespace SmilyTimerUWP.Views
         public TimerView()
         {
             this.InitializeComponent();
-            GotoSettingsButton.IsEnabled = false;
             ShowTimerAsClock(Seconds);
             this.NavigationCacheMode = NavigationCacheMode.Required;
             timer = new DispatcherTimer();
@@ -35,7 +34,7 @@ namespace SmilyTimerUWP.Views
             {
                 timer.Stop();
                 Seconds = 0;
-                GotoSettingsButton.IsEnabled = true;
+                SetButtonStates("Stop");
             }
 
             ShowTimerAsClock(Seconds);
@@ -53,6 +52,7 @@ namespace SmilyTimerUWP.Views
             var parameters = e.Parameter as TimerSetting;
             Seconds = parameters.Duration;
             ShowTimerAsClock(Seconds);
+            SetButtonStates("Start");
             timer.Start();
         }
 
@@ -79,6 +79,53 @@ namespace SmilyTimerUWP.Views
         {
             showAsClock = true;
             ShowTimerAsClock(Seconds);
+        }
+
+        private void TimeViewStopButton_Click(object sender, RoutedEventArgs e)
+        {
+            timer.Stop();
+            Seconds = 0;
+            ShowTimerAsClock(Seconds);
+            SetButtonStates("Stop");
+        }
+
+        private void TimeViewStartButton_Click(object sender, RoutedEventArgs e)
+        {
+            timer.Start();
+            SetButtonStates("Start");
+        }
+
+        private void TimeViewPauseButton_Click(object sender, RoutedEventArgs e)
+        {
+            timer.Stop();
+            SetButtonStates("Pause");
+        }
+
+        private void SetButtonStates(string state)
+        {
+            switch (state)
+            {
+                case "Start":
+                    GotoSettingsButton.IsEnabled = false;
+                    TimeViewStartButton.IsEnabled = false;
+                    TimeViewPauseButton.IsEnabled = true;
+                    TimeViewStopButton.IsEnabled = true;
+                    break;
+
+                case "Pause":
+                    GotoSettingsButton.IsEnabled = false;
+                    TimeViewStartButton.IsEnabled = true;
+                    TimeViewPauseButton.IsEnabled = false;
+                    TimeViewStopButton.IsEnabled = true;
+                    break;
+
+                case "Stop":
+                    GotoSettingsButton.IsEnabled = true;
+                    TimeViewStartButton.IsEnabled = false;
+                    TimeViewPauseButton.IsEnabled = false;
+                    TimeViewStopButton.IsEnabled = false;
+                    break;
+            }
         }
     }
 }
