@@ -16,13 +16,9 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace SmilyTimerUWP
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
+    
     public sealed partial class Settings : Page
     {
         private ObservableCollection<Animation> Animations;
@@ -73,13 +69,15 @@ namespace SmilyTimerUWP
 
         private void SettingsSaveButton_Click(object sender, RoutedEventArgs e)
         {
+            // Experimental. Chnage this later
+            Animation animation = new Animation("Candle");
+            TimerType timerType = new TimerType("CountDown");
             var parameters = new TimerSetting()
             {
-                AnimationType = AnimationType.Candle,
+                AnimationType = animation,
                 Duration = (SecDuration + (60 * MinDuration) + (3600 * HourDuration)),
-                TimerType = TimerType.CountDown
+                TimerType = timerType
             };
-
             
             Frame.Navigate(typeof(TimerView), parameters);
         }

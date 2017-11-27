@@ -14,6 +14,7 @@ namespace SmilyTimerUWP.Views
     public sealed partial class TimerView : Page
     {
         private int Seconds;
+        private string CountType;
         private bool showAsClock = true;
         private DispatcherTimer timer;
 
@@ -51,6 +52,7 @@ namespace SmilyTimerUWP.Views
         {
             var parameters = e.Parameter as TimerSetting;
             Seconds = parameters.Duration;
+            CountType = parameters.TimerType.ToString();
             ShowTimerAsClock(Seconds);
             SetButtonStates("Start");
             timer.Start();
