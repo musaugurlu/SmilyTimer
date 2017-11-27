@@ -37,6 +37,7 @@ namespace SmilyTimerUWP
             this.InitializeComponent();
             Animations = new ObservableCollection<Animation>();
             AnimationFactory.GetAnimations(Animations);
+            SettingsSaveButton.IsEnabled = false;
             
         }
 
@@ -112,8 +113,14 @@ namespace SmilyTimerUWP
                 SecDuration = sduration;
                 MinDuration = mduration;
                 HourDuration = hduration;
-
-                SettingsSaveButton.IsEnabled = true;
+                if (((HourDuration * 3600) + (MinDuration * 60) + SecDuration) > 0)
+                {
+                    SettingsSaveButton.IsEnabled = true;
+                }
+                else
+                {
+                    SettingsSaveButton.IsEnabled = false;
+                }
             }
             else
             {

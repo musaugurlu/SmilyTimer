@@ -20,6 +20,7 @@ namespace SmilyTimerUWP.Views
         public TimerView()
         {
             this.InitializeComponent();
+            GotoSettingsButton.IsEnabled = false;
             ShowTimerAsClock(Seconds);
             this.NavigationCacheMode = NavigationCacheMode.Required;
             timer = new DispatcherTimer();
@@ -71,11 +72,13 @@ namespace SmilyTimerUWP.Views
         private void ShowAsSecRadioButton_Click(object sender, RoutedEventArgs e)
         {
             showAsClock = false;
+            ShowTimerAsClock(Seconds);
         }
 
         private void ShowAsClockRadioButton_Click(object sender, RoutedEventArgs e)
         {
             showAsClock = true;
+            ShowTimerAsClock(Seconds);
         }
     }
 }
