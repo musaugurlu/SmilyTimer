@@ -37,20 +37,38 @@
                             Margin="0,20,0,0"
                             RelativePanel.Below="TimeTextBlock">
                     <Button Name="TimeViewStartButton"
-                            Content="Start"
-                            Width="60"
-                            Click="TimeViewStartButton_Click"/>
+                            Width="80"
+                            Click="TimeViewStartButton_Click">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <SymbolIcon Symbol="Play"/>
+                                <TextBlock Text="Start" Margin="3,0,0,0"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
 
                     <Button Name="TimeViewPauseButton"
-                            Content="Pause"
                             Margin="10,0,10,0"
-                            Width="60"
-                            Click="TimeViewPauseButton_Click"/>
+                            Width="80"
+                            Click="TimeViewPauseButton_Click">
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal">
+                                    <SymbolIcon Symbol="Pause"/>
+                                    <TextBlock Text="Pause" Margin="3,0,0,0"/>
+                                </StackPanel>
+                            </Button.Content>
+                    </Button>
 
                     <Button Name="TimeViewStopButton"
-                            Content="Stop"
                             Click="TimeViewStopButton_Click"
-                            Width="60"/>
+                            Width="80">
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal">
+                                    <SymbolIcon Symbol="Stop"/>
+                                    <TextBlock Text="Stop" Margin="3,0,0,0"/>
+                                </StackPanel>
+                            </Button.Content>
+                    </Button>
 
                 </StackPanel>
             </RelativePanel>
@@ -63,11 +81,17 @@
             <RelativePanel>
                 <Button Name="GotoSettingsButton"
                         Margin="5,0,5,0"
-                        Content="Settings"
                         Visibility="Visible"
                         Click="GotoSettingsButton_Click"
-                        RelativePanel.AlignLeftWithPanel="True"/>
-                
+                        RelativePanel.AlignLeftWithPanel="True">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <SymbolIcon Symbol="Setting"/>
+                                <TextBlock Text="Settings" Margin="3,0,0,0"/>
+                            </StackPanel>
+                        </Button.Content>
+                </Button>
+
                 <RadioButton Name="ShowAsClockRadioButton" 
                              Content="Show as clock" 
                              Margin="5,0,5,0"

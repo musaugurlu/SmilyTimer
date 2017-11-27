@@ -168,10 +168,16 @@
         <StackPanel Grid.Row="1" 
                     Margin="40" 
                     Orientation="Horizontal">
-            
-            <Button Content="Start"
-                    Name="SettingsSaveButton"
-                    Click="SettingsSaveButton_Click"/>
+
+            <Button Name="SettingsSaveButton"
+                    Click="SettingsSaveButton_Click">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Clock"/>
+                            <TextBlock Text="Start" Margin="3,0,0,0"/>
+                        </StackPanel>
+                    </Button.Content>
+            </Button>
         </StackPanel>
         <StackPanel Grid.Row="0" 
                     Grid.Column="1">
