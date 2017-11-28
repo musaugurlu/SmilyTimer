@@ -13,7 +13,9 @@ namespace SmilyTimerUWP.Views
     /// </summary>
     public sealed partial class TimerView : Page
     {
-        private int Seconds;
+        private int Duration;
+        private int CountDownSeconds;
+        private int CountUpSeconds = 0;
         private string CountType;
         private string AnimationType;
         private bool showAsClock = true;
@@ -22,26 +24,30 @@ namespace SmilyTimerUWP.Views
         public TimerView()
         {
             this.InitializeComponent();
-            ShowTimerAsClock(Seconds);
+            ShowTimerAsClock(CountDownSeconds);
             this.NavigationCacheMode = NavigationCacheMode.Required;
             timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 1);
             timer.Tick += Timer_Tick;
+            
         }
 
         private void Timer_Tick(object sender, object e)
         {
-            Seconds = Seconds - 1;
-            if (Seconds < 1)
+            if(CountType == "CountDown")
             {
-                timer.Stop();
-                Seconds = 0;
-                SetButtonStates("Stop");
+                CountDownSeconds--;
+                CountDown(CountDownSeconds);
+            }
+            else if (CountType == "CountUp")
+            {
+                CountUpSeconds++;
+                CountUp(CountUpSeconds);
             }
 
-            ShowTimerAsClock(Seconds);
+            ShowTimerAsClock(CountDownSeconds);
         }
-
+        
         private void GotoSettingsButton_Click(object sender, RoutedEventArgs e)
         {
             timer.Stop();
@@ -52,11 +58,16 @@ namespace SmilyTimerUWP.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             var parameters = e.Parameter as TimerSetting;
-            Seconds = parameters.Duration;
+            Duration = parameters.Duration;
             CountType = parameters.TimerType.Name;
             AnimationType = parameters.AnimationType.Name;
 
-            ShowTimerAsClock(Seconds);
+            if (CountType == "CountDown")
+            {
+                CountDownSeconds = Duration;
+                ShowTimerAsClock(CountDownSeconds);
+            }
+                        
             SetButtonStates("Start");
             timer.Start();
         }
@@ -77,20 +88,20 @@ namespace SmilyTimerUWP.Views
         private void ShowAsSecRadioButton_Click(object sender, RoutedEventArgs e)
         {
             showAsClock = false;
-            ShowTimerAsClock(Seconds);
+            ShowTimerAsClock(CountDownSeconds);
         }
 
         private void ShowAsClockRadioButton_Click(object sender, RoutedEventArgs e)
         {
             showAsClock = true;
-            ShowTimerAsClock(Seconds);
+            ShowTimerAsClock(CountDownSeconds);
         }
 
         private void TimeViewStopButton_Click(object sender, RoutedEventArgs e)
         {
             timer.Stop();
-            Seconds = 0;
-            ShowTimerAsClock(Seconds);
+            CountDownSeconds = 0;
+            ShowTimerAsClock(CountDownSeconds);
             SetButtonStates("Stop");
         }
 
@@ -131,6 +142,22 @@ namespace SmilyTimerUWP.Views
                     TimeViewStopButton.IsEnabled = false;
                     break;
             }
+        }
+
+        private void CountDown(int Seconds)
+        {
+            if (Seconds < 1)
+            {
+                timer.Stop();
+                CountDownSeconds = 0;
+                SetButtonStates("Stop");
+            }
+        }
+
+
+        private void CountUp(int Seconds)
+        {
+
         }
     }
 }
