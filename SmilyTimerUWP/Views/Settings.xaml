@@ -48,12 +48,21 @@
             <Setter Property="FontFamily" Value="Berlin Sans FB"/>
             <Setter Property="Grid.Row" Value="0"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Margin" Value="20"/>
+        </Style>
+        <Style x:Name="NavHeaderActiveStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="48"/>
+            <Setter Property="Margin" Value="20,0,0,20" />
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+        <Style x:Name="NavHeaderPassiveStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="48"/>
+            <Setter Property="Margin" Value="20,0,0,20" />
+            <Setter Property="Foreground" Value="LightGray"/>
         </Style>
     </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-          Margin="0,10,0,0">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*" />
@@ -61,10 +70,23 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <TextBlock Text="Settings"
+                       Name="MainPageNavSettingsTextBlock"
+                       Style="{StaticResource NavHeaderActiveStyle}"/>
 
-        <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Vertical">
+            <TextBlock Text="|"
+                       Style="{StaticResource NavHeaderPassiveStyle}"/>
+
+            <TextBlock Text="Timer"
+                       Name="MainPageNavTimerTextBlock"
+                       Style="{StaticResource NavHeaderPassiveStyle}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Vertical">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -166,7 +188,7 @@
                 </RelativePanel>
             </Grid>
         </StackPanel>
-        <StackPanel Grid.Row="1" 
+        <StackPanel Grid.Row="2" 
                     Margin="40" 
                     Orientation="Horizontal">
 
@@ -193,7 +215,7 @@
                     </Button.Content>
             </Button>
         </StackPanel>
-        <StackPanel Grid.Row="0" 
+        <StackPanel Grid.Row="1" 
                     Grid.Column="1">
             <Grid>
                 <Grid.RowDefinitions>

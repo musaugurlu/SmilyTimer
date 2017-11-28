@@ -7,18 +7,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Loaded="Page_Loaded">
-    <Page.Resources>
-        <Style x:Name="NavHeaderActiveStyle" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="48"/>
-            <Setter Property="Margin" Value="20,0,0,0" />
-            <Setter Property="Foreground" Value="Black"/>
-        </Style>
-        <Style x:Name="NavHeaderPassiveStyle" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="48"/>
-            <Setter Property="Margin" Value="20,0,0,0" />
-            <Setter Property="Foreground" Value="LightGray"/>
-        </Style>
-    </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="20">
         <Grid.RowDefinitions>
@@ -26,18 +14,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="0">
-            <TextBlock Text="Settings"
-                       Name="MainPageNavSettingsTextBlock"
-                       Style="{StaticResource NavHeaderActiveStyle}"/>
-            
-            <TextBlock Text="|"
-                       Style="{StaticResource NavHeaderPassiveStyle}"/>
-
-            <TextBlock Text="Timer"
-                       Name="MainPageNavTimerTextBlock"
-                       Style="{StaticResource NavHeaderPassiveStyle}"/>
-        </StackPanel>
+        
         
         <Frame x:Name="MainBodyFrame" 
                Grid.Row="1"/>
