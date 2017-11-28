@@ -48,6 +48,7 @@
             <Setter Property="FontFamily" Value="Berlin Sans FB"/>
             <Setter Property="Grid.Row" Value="0"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="10"/>
         </Style>
     </Page.Resources>
 
@@ -169,6 +170,19 @@
                     Margin="40" 
                     Orientation="Horizontal">
 
+            <ComboBox Name="TimerTypeComboBox"
+                      Margin="3,0,10,0"
+                      MinWidth="150"
+                      SelectionChanged="TimerTypeComboBox_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Name}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
             <Button Name="SettingsSaveButton"
                     Click="SettingsSaveButton_Click">
                     <Button.Content>
@@ -188,7 +202,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                
+
                 <TextBlock Text="Animation"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
@@ -196,13 +210,20 @@
                            Margin="0,10,0,0"
                            FontSize="28"/>
 
-                <ComboBox Name="AnimationComboBox"
+                <ComboBox x:Name="AnimationComboBox"
                           HorizontalAlignment="Stretch"
                           VerticalAlignment="Stretch"
                           Grid.Row="1"
                           Margin="10"
-                          ItemsSource="{x:Bind Animations}"
-                          DisplayMemberPath="Name"/>
+                          SelectionChanged="AnimationComboBox_SelectionChanged">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Name}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
             </Grid>
             
         </StackPanel>

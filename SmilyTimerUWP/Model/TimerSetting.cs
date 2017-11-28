@@ -12,17 +12,4 @@ namespace SmilyTimerUWP.Model
         public int Duration { get; set; }
         public Animation AnimationType { get; set; }
     }
-
-    //public enum TimerType
-    //{
-    //    CountDown,
-    //    Timer
-    //}
-
-    //public enum AnimationType
-    //{
-    //    Candle,
-    //    Turtle,
-    //    AngryMan
-    //}
 }

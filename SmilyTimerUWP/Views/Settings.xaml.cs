@@ -22,6 +22,9 @@ namespace SmilyTimerUWP
     public sealed partial class Settings : Page
     {
         private ObservableCollection<Animation> Animations;
+        private ObservableCollection<TimerType> TimerTypes;
+        private Animation animation;
+        private TimerType timerType;
 
         private int SecDuration { get; set; }
         private int MinDuration { get; set; }
@@ -31,10 +34,24 @@ namespace SmilyTimerUWP
         public Settings()
         {
             this.InitializeComponent();
+
             Animations = new ObservableCollection<Animation>();
+            TimerTypes = new ObservableCollection<TimerType>();
+
             AnimationFactory.GetAnimations(Animations);
-            SettingsSaveButton.IsEnabled = false;
+            TimerTypeFactory.GetTimerTypes(TimerTypes);
             
+            AnimationComboBox.ItemsSource = Animations;
+            AnimationComboBox.SelectedItem = Animations.FirstOrDefault();
+
+            TimerTypeComboBox.ItemsSource = TimerTypes;
+            TimerTypeComboBox.SelectedItem = TimerTypes.FirstOrDefault();
+
+            SettingsSaveButton.IsEnabled = false;
+
+            animation = AnimationFactory.GetAllAnimations().FirstOrDefault();
+            timerType = TimerTypeFactory.GetAllTimerTypes().FirstOrDefault();
+
         }
 
         private void SecsDownButton_Click(object sender, RoutedEventArgs e)
@@ -69,9 +86,6 @@ namespace SmilyTimerUWP
 
         private void SettingsSaveButton_Click(object sender, RoutedEventArgs e)
         {
-            // Experimental. Chnage this later
-            Animation animation = new Animation("Candle");
-            TimerType timerType = new TimerType("CountDown");
             var parameters = new TimerSetting()
             {
                 AnimationType = animation,
@@ -102,6 +116,16 @@ namespace SmilyTimerUWP
             TextBox textBox = sender as TextBox;
 
             ValidateTextBoxes();
+        }
+
+        private void AnimationComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            animation = (Animation)AnimationComboBox.SelectedValue;
+        }
+
+        private void TimerTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            timerType = (TimerType)TimerTypeComboBox.SelectedValue;
         }
 
         private void ValidateTextBoxes()
@@ -170,6 +194,5 @@ namespace SmilyTimerUWP
             }
 
         }
-
     }
 }

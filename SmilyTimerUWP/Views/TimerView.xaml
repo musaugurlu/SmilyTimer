@@ -26,7 +26,7 @@
                            StrokeThickness="2"
                            Fill="Yellow"
                            RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-                
+
                 <TextBlock Name="TimeTextBlock"
                            FontSize="48"
                            Text="12:34:56"
@@ -51,28 +51,27 @@
                             Margin="10,0,10,0"
                             Width="80"
                             Click="TimeViewPauseButton_Click">
-                            <Button.Content>
-                                <StackPanel Orientation="Horizontal">
-                                    <SymbolIcon Symbol="Pause"/>
-                                    <TextBlock Text="Pause" Margin="3,0,0,0"/>
-                                </StackPanel>
-                            </Button.Content>
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <SymbolIcon Symbol="Pause"/>
+                                <TextBlock Text="Pause" Margin="3,0,0,0"/>
+                            </StackPanel>
+                        </Button.Content>
                     </Button>
 
                     <Button Name="TimeViewStopButton"
                             Click="TimeViewStopButton_Click"
                             Width="80">
-                            <Button.Content>
-                                <StackPanel Orientation="Horizontal">
-                                    <SymbolIcon Symbol="Stop"/>
-                                    <TextBlock Text="Stop" Margin="3,0,0,0"/>
-                                </StackPanel>
-                            </Button.Content>
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <SymbolIcon Symbol="Stop"/>
+                                <TextBlock Text="Stop" Margin="3,0,0,0"/>
+                            </StackPanel>
+                        </Button.Content>
                     </Button>
 
                 </StackPanel>
             </RelativePanel>
-
         </StackPanel>
         <StackPanel Grid.Row="1" 
                     Grid.ColumnSpan="4"
