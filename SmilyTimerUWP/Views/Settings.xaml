@@ -215,7 +215,7 @@
                     </Button.Content>
             </Button>
         </StackPanel>
-        <StackPanel Grid.Row="1" 
+        <StackPanel Grid.Row="3" 
                     Grid.Column="1">
             <Grid>
                 <Grid.RowDefinitions>
@@ -247,6 +247,10 @@
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>
+
+                <Image Name="AnimationImage"
+                       Grid.Row="2"
+                       Margin="10"/>
             </Grid>
             
         </StackPanel>

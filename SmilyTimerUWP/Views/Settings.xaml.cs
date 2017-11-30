@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 namespace SmilyTimerUWP
@@ -51,6 +52,8 @@ namespace SmilyTimerUWP
 
             animation = AnimationFactory.GetAllAnimations().FirstOrDefault();
             timerType = TimerTypeFactory.GetAllTimerTypes().FirstOrDefault();
+
+            AnimationImage.Source = new SvgImageSource(new Uri(this.BaseUri,"/Assets/Candle2.svg"));
 
         }
 

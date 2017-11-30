@@ -38,13 +38,11 @@ namespace SmilyTimerUWP.Views
             {
                 CountDownSeconds--;
                 CountDown(CountDownSeconds);
-                
             }
             else if (CountType == "CountUp")
             {
                 CountUpSeconds++;
                 CountUp(CountUpSeconds);
-                
             }
         }
         
@@ -52,7 +50,6 @@ namespace SmilyTimerUWP.Views
         {
             timer.Stop();
             Frame.Navigate(typeof(Settings));
-
         }
 
         private void ShowAsSecRadioButton_Click(object sender, RoutedEventArgs e)
