@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1"
+	 id="Candle" inkscape:version="0.48.4 r9939" sodipodi:docname="candle.svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 744.1 1052.4"
+	 enable-background="new 0 0 744.1 1052.4" xml:space="preserve">
+<g id="outerYellow" sodipodi:cx="356.58386" sodipodi:cy="253.33151" sodipodi:rx="239.40616" sodipodi:ry="293.95438" sodipodi:type="arc" opacity="0.4423" enable-background="new    ">
+	<ellipse fill="#FFFF00" cx="364.7" cy="347.3" rx="199.6" ry="245.1"/>
+</g>
+<g id="body">
+	
+		<linearGradient id="bodyMiddle_1_" gradientUnits="userSpaceOnUse" x1="232.8162" y1="838.972" x2="452.8282" y2="838.972" gradientTransform="matrix(0.8336 0 0 -0.8336 73.4244 1372.7493)">
+		<stop  offset="0" style="stop-color:#FFC900"/>
+		<stop  offset="1" style="stop-color:#775E00"/>
+	</linearGradient>
+	<path id="bodyMiddle" inkscape:connector-curvature="0" sodipodi:nodetypes="ccccc" fill="url(#bodyMiddle_1_)" d="M267.5,434.6
+		c0-51.7,184.1-49.3,183.4,0V892c0,81-183.4,73.7-183.4,0V434.6z"/>
+	
+		<linearGradient id="bodyEdge_1_" gradientUnits="userSpaceOnUse" x1="242.011" y1="808.2184" x2="261.6223" y2="809.647" gradientTransform="matrix(0.8336 0 0 -0.8336 73.4244 1372.7493)">
+		<stop  offset="0" style="stop-color:#E3FF00"/>
+		<stop  offset="1" style="stop-color:#FFA900"/>
+	</linearGradient>
+	<path id="bodyEdge" inkscape:connector-curvature="0" sodipodi:nodetypes="cccc" fill="url(#bodyEdge_1_)" d="M274.6,458.5v443.8
+		c4.8,12.4,13.9,24.3,38.7,34.5L274.6,458.5z"/>
+</g>
+<path id="topInside" sodipodi:cx="346.48233" sodipodi:cy="369.49905" sodipodi:rx="95.964493" sodipodi:ry="38.385796" sodipodi:type="arc" fill="#F8FF58" d="
+	M439.6,439.1c0,17.7-35.8,32-80,32s-80-14.3-80-32s35.8-32,80-32S439.6,421.4,439.6,439.1L439.6,439.1z"/>
+<path id="topEdge" inkscape:connector-curvature="0" fill="#FFA900" d="M359.7,407.1c-44.2,0-80,14.3-80,32c0,1.1,0.2,2.3,0.4,3.4
+	c4.2-16.1,38.2-28.6,79.6-28.6s75.3,12.5,79.6,28.6c0.3-1.1,0.4-2.2,0.4-3.4C439.7,421.4,403.8,407.1,359.7,407.1z"/>
+<path id="string" inkscape:connector-curvature="0" sodipodi:nodetypes="cc" fill="none" stroke="#000000" stroke-width="4.1682" d="
+	M353.8,442.5c0-40.1,2.1-80.6,43.8-84.6"/>
+<g id="Flame">
+	<path id="innerYellow" inkscape:connector-curvature="0" opacity="0.7389" fill="#FBFF00" enable-background="new    " d="
+		M365.7,160.2c-35.4,0-64.2,110.9-64.2,171.4c0,58,26.4,62.4,59.8,62.6c-26.4-0.4-47-4.8-47-51.1c0-49.4,23.5-140,52.4-140
+		s52.4,90.6,52.4,140c0,46.2-20.5,50.7-46.9,51.1c32.4-0.5,57.6-6,57.6-62.6C429.8,271.1,401.1,160.2,365.7,160.2L365.7,160.2z"/>
+	<path id="innerGreen" inkscape:connector-curvature="0" opacity="0.7389" fill="#FFC500" enable-background="new    " d="
+		M365.7,203c-28.9,0-52.4,90.6-52.4,140s23.5,51.2,52.4,51.2s52.4-1.8,52.4-51.2S394.6,203,365.7,203L365.7,203z M365.5,232.2
+		c24.4,0,44.3,76.5,44.3,118.2s-19.8,43.2-44.3,43.2s-44.2-1.5-44.2-43.2S341.1,232.2,365.5,232.2L365.5,232.2z"/>
+	
+		<path id="innerRed" inkscape:connector-curvature="0" sodipodi:nodetypes="sssss" opacity="0.8717" fill="#FF3D00" enable-background="new    " d="
+		M409.9,350.9c0,41.7-19.8,43.2-44.2,43.2c-24.4,0-44.2-1.5-44.2-43.2s19.8-118.2,44.2-118.2C390.1,232.8,409.9,309.3,409.9,350.9z"
+		/>
+</g>
+</svg>

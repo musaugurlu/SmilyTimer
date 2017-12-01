@@ -99,6 +99,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Animation.cs" />
+    <Compile Include="Model\AnimationCandle.cs" />
     <Compile Include="Model\TimerSetting.cs" />
     <Compile Include="Model\TimerType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,7 +117,7 @@
     <None Include="SmilyTimerUWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Candle2.svg" />
+    <Content Include="Assets\Candle.svg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -146,7 +147,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>6.0.1</Version>
+      <Version>6.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Win2D.uwp">
+      <Version>1.21.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup />

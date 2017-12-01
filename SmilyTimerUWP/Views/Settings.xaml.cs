@@ -1,31 +1,25 @@
-﻿using SmilyTimerUWP.Model;
+﻿using Microsoft.Graphics.Canvas.Svg;
+using Microsoft.Graphics.Canvas.UI.Xaml;
+using SmilyTimerUWP.Model;
 using SmilyTimerUWP.Views;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using Windows.Storage;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
-using Windows.UI.Xaml.Navigation;
 
 namespace SmilyTimerUWP
 {
-    
+
     public sealed partial class Settings : Page
     {
         private ObservableCollection<Animation> Animations;
         private ObservableCollection<TimerType> TimerTypes;
         private Animation animation;
         private TimerType timerType;
+        private CanvasSvgDocument svgDocument;
 
         private int SecDuration { get; set; }
         private int MinDuration { get; set; }
@@ -41,7 +35,7 @@ namespace SmilyTimerUWP
 
             AnimationFactory.GetAnimations(Animations);
             TimerTypeFactory.GetTimerTypes(TimerTypes);
-            
+
             AnimationComboBox.ItemsSource = Animations;
             AnimationComboBox.SelectedItem = Animations.FirstOrDefault();
 
@@ -54,7 +48,7 @@ namespace SmilyTimerUWP
             timerType = TimerTypeFactory.GetAllTimerTypes().FirstOrDefault();
 
             //AnimationImage.Source = "ms-appx:///Assets/Candle2.svg";
-            
+
 
         }
 
@@ -198,5 +192,20 @@ namespace SmilyTimerUWP
             }
 
         }
+
+        private async void CanvasControl_Draw(CanvasControl sender, CanvasDrawEventArgs args)
+        {
+            // Load an SVG document.
+            var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri(this.BaseUri, "/Assets/Candle.svg"));
+            
+            using (var stream = await file.OpenReadAsync())
+            {
+                svgDocument = await CanvasSvgDocument.LoadAsync(sender, stream);
+            }
+
+            // Draw it.
+            args.DrawingSession.DrawSvg(svgDocument,sender.Size);
+        }
+
     }
 }
