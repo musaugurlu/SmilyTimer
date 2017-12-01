@@ -63,169 +63,172 @@
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*" />
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
-        <StackPanel Orientation="Horizontal" Grid.Row="0">
-            <TextBlock Text="Settings"
+
+        <Grid Grid.Row="0">
+            <StackPanel Orientation="Horizontal" Grid.Row="0">
+                <TextBlock Text="Settings"
                        Name="MainPageNavSettingsTextBlock"
                        Style="{StaticResource NavHeaderActiveStyle}"/>
 
-            <TextBlock Text="|"
+                <TextBlock Text="|"
                        Style="{StaticResource NavHeaderPassiveStyle}"/>
 
-            <TextBlock Text="Timer"
+                <TextBlock Text="Timer"
                        Name="MainPageNavTimerTextBlock"
                        Style="{StaticResource NavHeaderPassiveStyle}"/>
-        </StackPanel>
-        <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Vertical">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-
-                <TextBlock Text="Hours"
-                           Grid.Column="0"
-                           Style="{StaticResource SettingsHeaderTextBlockStyle}"/>
-                
-                <RelativePanel Grid.Row="1" Grid.Column="0">
-                    
-                    <TextBox Name="SettingsHourTextbox" 
-                             Text="00"
-                             RelativePanel.AlignHorizontalCenterWithPanel="True"
-                             Style="{StaticResource SettingsTextboxStyle}" 
-                             InputScope="Number" 
-                             TextChanged="SettingsHourTextbox_TextChanged"/>
-                    
-                    <Grid RelativePanel.RightOf="SettingsHourTextbox">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Column="0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                         
-                        <Button Name="HoursUpButton" 
-                                Style="{StaticResource SettingsUpButtonStyle}"
-                                Click="HoursUpButton_Click"/>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
 
-                        <Button Name="HoursDownButton" 
-                                Style="{StaticResource SettingsDownButtonStyle}"
-                                Click="HoursDownButton_Click"/>
-                    </Grid>
-                </RelativePanel>
+                    <TextBlock Text="Hours"
+                        Grid.Column="0"
+                        Style="{StaticResource SettingsHeaderTextBlockStyle}"/>
 
-                <TextBlock Text="Mins"
-                           Grid.Column="1"
-                           Style="{StaticResource SettingsHeaderTextBlockStyle}"/>
-                
-                <RelativePanel Grid.Row="1" Grid.Column="1">
-                    
-                    <TextBox Name="SettingsMinsTextbox" 
-                             Text="00"
-                             RelativePanel.AlignHorizontalCenterWithPanel="True"
-                             Style="{StaticResource SettingsTextboxStyle}" 
-                             InputScope="Number" 
-                             TextChanged="SettingsMinsTextbox_TextChanged"/>
-                    
-                    <Grid RelativePanel.RightOf="SettingsMinsTextbox">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        
-                        <Button Name="MinsUpButton" 
-                                Style="{StaticResource SettingsUpButtonStyle}"
-                                Click="MinsUpButton_Click"/>
+                    <RelativePanel Grid.Row="1" Grid.Column="0">
 
-                        <Button Name="MinsDownButton" 
-                                Style="{StaticResource SettingsDownButtonStyle}"
-                                Click="MinsDownButton_Click"/>
-                    </Grid>
-                </RelativePanel>
+                        <TextBox Name="SettingsHourTextbox" 
+                            Text="00"
+                            RelativePanel.AlignHorizontalCenterWithPanel="True"
+                            Style="{StaticResource SettingsTextboxStyle}" 
+                            InputScope="Number" 
+                            TextChanged="SettingsHourTextbox_TextChanged"/>
 
-                <TextBlock Text="Seconds"
-                           Grid.Column="2"
-                           Style="{StaticResource SettingsHeaderTextBlockStyle}"/>
-                
-                <RelativePanel Grid.Row="1" Grid.Column="2">
-                    
-                    <TextBox Name="SettingsSecsTextbox" 
-                             Text="00"
-                             RelativePanel.AlignHorizontalCenterWithPanel="True"
-                             Style="{StaticResource SettingsTextboxStyle}" 
-                             TextChanged="SettingsSecsTextbox_TextChanged"/>
-                    
-                    <Grid RelativePanel.RightOf="SettingsSecsTextbox">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        
-                        <Button Name="SecsUpButton" 
-                                Style="{StaticResource SettingsUpButtonStyle}"
-                                Click="SecsUpButton_Click"/>
+                        <Grid RelativePanel.RightOf="SettingsHourTextbox">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
 
-                        <Button Name="SecsDownButton" 
-                                Style="{StaticResource SettingsDownButtonStyle}"
-                                Click="SecsDownButton_Click"/>
-                    </Grid>
-                </RelativePanel>
-            </Grid>
-        </StackPanel>
-        <StackPanel Grid.Row="2" 
-                    Margin="40" 
-                    Orientation="Horizontal">
+                            <Button Name="HoursUpButton" 
+                            Style="{StaticResource SettingsUpButtonStyle}"
+                            Click="HoursUpButton_Click"/>
 
-            <ComboBox Name="TimerTypeComboBox"
-                      Margin="3,0,10,0"
-                      MinWidth="150"
-                      SelectionChanged="TimerTypeComboBox_SelectionChanged">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Name}" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+                            <Button Name="HoursDownButton" 
+                            Style="{StaticResource SettingsDownButtonStyle}"
+                            Click="HoursDownButton_Click"/>
+                        </Grid>
+                    </RelativePanel>
 
-            <Button Name="SettingsSaveButton"
-                    Click="SettingsSaveButton_Click">
-                    <Button.Content>
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Clock"/>
-                            <TextBlock Text="Start" Margin="3,0,0,0"/>
-                        </StackPanel>
-                    </Button.Content>
-            </Button>
-        </StackPanel>
-        <StackPanel Grid.Row="3" 
-                    Grid.Column="1">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+                    <TextBlock Text="Mins"
+                        Grid.Column="1"
+                        Style="{StaticResource SettingsHeaderTextBlockStyle}"/>
 
-                <TextBlock Text="Animation"
+                    <RelativePanel Grid.Row="1" Grid.Column="1">
+
+                        <TextBox Name="SettingsMinsTextbox" 
+                            Text="00"
+                            RelativePanel.AlignHorizontalCenterWithPanel="True"
+                            Style="{StaticResource SettingsTextboxStyle}" 
+                            InputScope="Number" 
+                            TextChanged="SettingsMinsTextbox_TextChanged"/>
+
+                        <Grid RelativePanel.RightOf="SettingsMinsTextbox">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Button Name="MinsUpButton" 
+                            Style="{StaticResource SettingsUpButtonStyle}"
+                            Click="MinsUpButton_Click"/>
+
+                            <Button Name="MinsDownButton" 
+                            Style="{StaticResource SettingsDownButtonStyle}"
+                            Click="MinsDownButton_Click"/>
+                        </Grid>
+                    </RelativePanel>
+
+                    <TextBlock Text="Seconds"
+                        Grid.Column="2"
+                        Style="{StaticResource SettingsHeaderTextBlockStyle}"/>
+
+                    <RelativePanel Grid.Row="1" Grid.Column="2">
+
+                        <TextBox Name="SettingsSecsTextbox" 
+                            Text="00"
+                            RelativePanel.AlignHorizontalCenterWithPanel="True"
+                            Style="{StaticResource SettingsTextboxStyle}" 
+                            TextChanged="SettingsSecsTextbox_TextChanged"/>
+
+                        <Grid RelativePanel.RightOf="SettingsSecsTextbox">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Button Name="SecsUpButton" 
+                            Style="{StaticResource SettingsUpButtonStyle}"
+                            Click="SecsUpButton_Click"/>
+
+                            <Button Name="SecsDownButton" 
+                            Style="{StaticResource SettingsDownButtonStyle}"
+                            Click="SecsDownButton_Click"/>
+                        </Grid>
+                    </RelativePanel>
+                    <StackPanel Grid.Row="2" 
+                                Grid.ColumnSpan="3"
+                                Margin="40" 
+                                Orientation="Horizontal">
+
+                        <ComboBox Name="TimerTypeComboBox"
+                                  Margin="3,0,10,0"
+                                  MinWidth="150"
+                                  SelectionChanged="TimerTypeComboBox_SelectionChanged">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Name}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+
+                        <Button Name="SettingsSaveButton"
+                                Click="SettingsSaveButton_Click">
+                            
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal">
+                                    <SymbolIcon Symbol="Clock"/>
+                                    <TextBlock Text="Start" Margin="3,0,0,0"/>
+                                </StackPanel>
+                            </Button.Content>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+            
+            <StackPanel Grid.Column="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Animation"
                            Grid.Row="0"
                            Style="{StaticResource BaseTextBlockStyle}"
                            VerticalAlignment="Center"
@@ -233,26 +236,26 @@
                            FontSize="28"
                            Margin="0,20,0,10"/>
 
-                <ComboBox x:Name="AnimationComboBox"
+                    <ComboBox x:Name="AnimationComboBox"
                           HorizontalAlignment="Stretch"
                           VerticalAlignment="Stretch"
                           Grid.Row="1"
                           Margin="10"
                           SelectionChanged="AnimationComboBox_SelectionChanged">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Name}" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Name}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
 
-                <Image Name="AnimationImage"
+                    <Image Name="AnimationImage"
                        Grid.Row="2"
                        Margin="10"/>
-            </Grid>
-            
-        </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>
