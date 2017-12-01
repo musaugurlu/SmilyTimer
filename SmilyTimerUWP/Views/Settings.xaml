@@ -252,8 +252,9 @@
                     </ComboBox>
 
                     <Image Name="AnimationImage"
-                       Grid.Row="2"
-                       Margin="10"/>
+                           Grid.Row="2"
+                           Margin="10"
+                           Source="/Assets/Candle2.svg"/>
                 </Grid>
             </StackPanel>
         </Grid>
