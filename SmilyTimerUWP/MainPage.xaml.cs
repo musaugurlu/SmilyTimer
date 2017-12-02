@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -26,6 +27,8 @@ namespace SmilyTimerUWP
         public MainPage()
         {
             this.InitializeComponent();
+            ApplicationView applicationView = ApplicationView.GetForCurrentView();
+            applicationView.Title = "Smily Timer";
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)

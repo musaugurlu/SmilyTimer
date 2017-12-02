@@ -14,8 +14,6 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        
-        
         <Frame x:Name="MainBodyFrame" 
                Grid.Row="1"/>
     </Grid>
