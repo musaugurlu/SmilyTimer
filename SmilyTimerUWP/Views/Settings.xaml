@@ -257,10 +257,12 @@
                            Margin="10"
                            Source="/Assets/Candle2.svg"/>-->
 
-                    <canvas:CanvasControl Name="AnimationCanvas" 
+                    <!--<canvas:CanvasControl Name="AnimationCanvas" 
                                           Draw="CanvasControl_Draw"
-                                          Grid.Row="2"/>
+                                          Grid.Row="2"/>-->
 
+                    <Frame Name="AnimationFrame" Grid.Row="2"/>
+                    
                 </Grid>
             </StackPanel>
         </Grid>

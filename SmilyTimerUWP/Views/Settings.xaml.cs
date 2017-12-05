@@ -47,7 +47,7 @@ namespace SmilyTimerUWP
             animation = AnimationFactory.GetAllAnimations().FirstOrDefault();
             timerType = TimerTypeFactory.GetAllTimerTypes().FirstOrDefault();
 
-            //AnimationImage.Source = "ms-appx:///Assets/Candle2.svg";
+            AnimationFrame.Navigate(typeof(Candle));
 
 
         }
